@@ -16,3 +16,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::prefix('v1')->group(function () {
+	Route::apiResources([
+			'associations'		=> 'AssociationController',
+			'bookings'	=> 'BookingController',
+			'users'			=> 'UserController',
+			'bookinglines'			=> 'BookingLineController',
+			'items'			=> 'ItemController',
+			'itemtypes'		=> 'ItemTypeController',
+	]);
+});
