@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Booking;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Booking;
+use App\User;
+use App\Association;
+use App\Http\Requests\BookingRequest;
 
 class BookingController extends Controller
 {
@@ -14,7 +18,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $bookings = Booking::get();
+        return response()->json($bookings, 200);
     }
 
     /**
@@ -25,7 +30,15 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $booking = Booking::create($request->all());
+        if($booking)
+        {
+            return response()->json($booking, 200);
+        }
+        else
+        {
+            return response()->json(["message" => "Impossible de créer la réservation"], 500);
+        }
     }
 
     /**
@@ -34,9 +47,14 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function show(Booking $booking)
+    public function show($id)
     {
-        //
+        $booking = Booking::find($id);
+
+        if($booking)
+            return response()->json($booking, 200);
+        else
+            return response()->json(["message" => "Impossible de trouver la réservation"], 500);
     }
 
     /**
@@ -46,9 +64,16 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request, $id)
     {
-        //
+        $booking = Booking::find($id);
+        if($booking){
+            $value = $booking->update($request->input());
+            if($value)
+                return response()->json($value, 201);
+            return response()->json(['message'=>'An error ocured'],500);
+        }
+        return response()->json(["message" => "Impossible de trouver la réservation"], 500);
     }
 
     /**
@@ -57,8 +82,16 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booking $booking)
+    public function destroy($id)
     {
-        //
+       $booking = Booking::find($id);
+
+        if ($booking)
+        {
+            $booking->delete();
+            return response()->json([], 200);
+        }
+        else
+            return response()->json(["message" => "Impossible de trouver la réservation"], 500);
     }
 }

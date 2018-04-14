@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AssociationRequest extends FormRequest
+class BookingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,11 @@ class AssociationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  =>  'string|between:3,191'.($this->isMethod('put')?'':'|required'),
-            'parent_id'  =>  'nullable|integer|unsigned',
-            'mail'  =>  'string|between:3,191'.($this->isMethod('put')?'':'|required'),
+            'owner' =>  'integer'.($this->isMethod('put')?'':'|required');
+            'booker'    =>  'integer'.($this->isMethod('put')?'':'|required');
+            'user'  =>  'integer'.($this->isMethod('put')?'':'|required');
+            'cautionReceived'   => .($this->isMethod('put')?'':'|required');
+            'caution'   =>  'integer'.($this->isMethod('put')?'':'|required');
         ];
     }
 }
