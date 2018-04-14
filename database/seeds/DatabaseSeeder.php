@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         	UsersTableSeeder::class,
         	BookingsTableSeeder::class,
         	BookingLinesTableSeeder::class,
+            AssoUsersTableSeeder::class,
         ]);
     }
 }

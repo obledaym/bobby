@@ -26,5 +26,6 @@ Route::prefix('v1')->group(function () {
 			'bookinglines'			=> 'BookingLineController',
 			'items'			=> 'ItemController',
 			'itemtypes'		=> 'ItemTypeController',
+			'assousers'		=>	'AssoUserController',
 	]);
 });
