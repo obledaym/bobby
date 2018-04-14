@@ -88,6 +88,6 @@ class UserController extends Controller
             return response()->json([], 200);
         }
         else
-            return response()->json(["message" => "Impossible de trouver le type d'item"], 500);
+            return response()->json(["message" => "Impossible de trouver l'utilisation"], 500);
     }
 }
