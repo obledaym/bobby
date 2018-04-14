@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BookingRequest extends FormRequest
+class ItemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,13 @@ class BookingRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' =>  'string'.($this->isMethod('put')?'':'|required');
-            'description'    =>  'string';
-            'quantity'  =>  'integer'.($this->isMethod('put')?'':'|required');
-            'place'   => 'string'.($this->isMethod('put')?'':'|required');
-            'status'   =>  'string'.($this->isMethod('put')?'':'|required');
-            'caution'   =>  'integer'.($this->isMethod('put')?'':'|required');
-            'type'   =>  'string'.($this->isMethod('put')?'':'|required');
-            'association'   =>  'integer'.($this->isMethod('put')?'':'|required');
+            'name' =>  'string'.($this->isMethod('put')?'':'|required'),
+            'quantity'  =>  'integer'.($this->isMethod('put')?'':'|required'),
+            'place'   => 'string'.($this->isMethod('put')?'':'|required'),
+            'status'   =>  ($this->isMethod('put')?'':'|required'),
+            'caution'   =>  'integer'.($this->isMethod('put')?'':'|required'),
+            'type'   =>  'integer'.($this->isMethod('put')?'':'|required'),
+            'association'   =>  'integer'.($this->isMethod('put')?'':'|required'),
         ];
     }
 }

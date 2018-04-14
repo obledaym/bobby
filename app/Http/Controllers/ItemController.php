@@ -26,7 +26,7 @@ class ItemController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function store(Request $request)
+    public function store(ItemRequest $request)
     {
         $item = Item::create($request->all());
         if($item)
@@ -63,7 +63,7 @@ class ItemController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, $id)
+    public function update(ItemRequest $request, $id)
     {
         $item = Item::find($id);
         if($item){
