@@ -17,11 +17,11 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description')->nullable();
-            $table->integer('quantity');
+            $table->integer('quantity')->unsigned();
             $table->string('place');
             $table->boolean('status');
-            $table->integer('caution');
-            $table->integer('type');
+            $table->integer('caution')->unsigned();
+            $table->integer('type')->unsigned();
             $table->integer('association')->unsigned();
 
             $table->foreign('association')->references('id')->on('associations');

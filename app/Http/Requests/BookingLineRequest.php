@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AssociationRequest extends FormRequest
+class BookingLineRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

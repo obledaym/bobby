@@ -15,9 +15,9 @@ class CreateBookingLinesTable extends Migration
     {
         Schema::create('booking_lines', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('booking');
-            $table->integer('item');
-            $table->integer('quantity');
+            $table->integer('booking')->unsigned();
+            $table->integer('item')->unsigned();
+            $table->integer('quantity')->unsigned();
             $table->timestamp('date');
             $table->string('status');
 
