@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Association;
+use App\Item;
 
-class AssociationsTableSeeder extends Seeder
+class ItemsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,11 +12,16 @@ class AssociationsTableSeeder extends Seeder
      */
     public function run()
     {
-        $associations = [
+        $items = [
         	[
-        		'name' => 'Integration UTC',
+        		'name' => 'barnum',
         		'parent_id'	=>	null,
         		'mail'	=>	'integutc@gmail.com',
+                'name' => 'Integration UTC',
+                'name' => 'Integration UTC',
+                'name' => 'Integration UTC',
+                'name' => 'Integration UTC',
+                'name' => 'Integration UTC',
 	        ],
 	        [
         		'name' => 'BDE',
