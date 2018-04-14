@@ -15,9 +15,11 @@ Créer le fichier `.env` à partir de `env.example`.
 
 Dans le fichier `.env`, configurez les points suivants :
 
-`DB_DATABASE=bobby
+```
+DB_DATABASE=bobby
 DB_USERNAME=root
-DB_PASSWORD=`
+DB_PASSWORD=
+```
 
 Migrer les tables 
 ```

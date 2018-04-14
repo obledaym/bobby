@@ -14,13 +14,31 @@ class ItemTypesTableSeeder extends Seeder
     {
         $item_types = [
         	[
-        		'name' => 'Electroménager',
+        		'name' => 'Mobilier intérieur',
 	        ],
 	        [
-                'name' => 'Animations',
+                'name' => 'Mobilier extérieur',
             ],
 	        [
-                'name' => 'Evenementiel',
+                'name' => 'Sécurité',
+            ],
+            [
+                'name' => 'Outils',
+            ],
+            [
+                'name' => 'Cuisine',
+            ],
+            [
+                'name' => 'Décoration',
+            ],
+            [
+                'name' => 'Jeux',
+            ],
+            [
+                'name' => 'High Tech',
+            ],
+            [
+                'name' => 'Divers',
             ],
         ];
 
