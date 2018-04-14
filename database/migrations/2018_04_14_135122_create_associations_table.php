@@ -15,6 +15,11 @@ class CreateAssociationsTable extends Migration
     {
         Schema::create('associations', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->string('mail');
+
+            $table->foreign('parent_id')->references('id')->on('associations');
             $table->timestamps();
         });
     }
