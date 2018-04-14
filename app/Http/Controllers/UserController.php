@@ -26,8 +26,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
+        //dd($request->login);
         $user = User::create($request->all());
         if($user)
         {
@@ -61,7 +62,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         $user = User::find($id);
         if($user){
