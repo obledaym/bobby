@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Http\Requests\ItemRequest;
+use App\Http\Controllers\Controller;
+use App\Item;
 
 class ItemController extends Controller
 {
@@ -13,7 +15,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        $items = Item::get();
+        return response()->json($items, 200);
     }
 
     /**
@@ -22,9 +25,18 @@ class ItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        //
+        $item = Item::create($request->all());
+        if($item)
+        {
+            return response()->json($item, 200);
+        }
+        else
+        {
+            return response()->json(["message" => "Impossible de créer l'objet"], 500);
+        }
     }
 
     /**
@@ -33,9 +45,14 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
-        //
+        $item = Item::find($id);
+        if($item)
+            return response()->json($item, 200);
+        else
+            return response()->json(["message" => "Impossible de trouver l'objet"], 500);
     }
 
     /**
@@ -45,9 +62,17 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
-        //
+        $item = Item::find($id);
+        if($item){
+            $value = $item->update($request->input());
+            if($value)
+                return response()->json($value, 201);
+            return response()->json(['message'=>'An error ocured'],500);
+        }
+        return response()->json(["message" => "Impossible de trouver l'objet"], 500);
     }
 
     /**
@@ -56,8 +81,16 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
-        //
+        $item = Item::find($id);
+        if ($item)
+        {
+            $item->delete();
+            return response()->json([], 200);
+        }
+        else
+            return response()->json(["message" => "Impossible de trouver l'objet"], 500);
     }
 }
