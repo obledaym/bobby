@@ -14,29 +14,39 @@ class ItemsTableSeeder extends Seeder
     {
         $items = [
         	[
-        		'name' => 'barnum',
-        		'parent_id'	=>	null,
-        		'mail'	=>	'integutc@gmail.com',
-                'name' => 'Integration UTC',
-                'name' => 'Integration UTC',
-                'name' => 'Integration UTC',
-                'name' => 'Integration UTC',
-                'name' => 'Integration UTC',
+        		'name' => 'Barnum',
+        		'description'	=>	null,
+        		'quantity'	=>	10,
+                'place' => 'Garage7',
+                'status' =>  true,
+                'caution' => 300,
+                'type' => 1,
+                'association' => 1,
 	        ],
 	        [
-        		'name' => 'BDE',
-        		'parent_id'	=>	null,
-        		'mail'	=>	'bdeutc@gmail.com',
-	        ],
+                'name' => 'Barbecue',
+                'description'   =>  null,
+                'quantity'  =>  10,
+                'place' => 'Garage7',
+                'status' =>  true,
+                'caution' => 300,
+                'type' => 1,
+                'association' => 1,
+            ],
 	        [
-        		'name' => 'Imaginarium Festival',
-        		'parent_id'	=>	null,
-        		'mail'	=>	'if@gmail.com',
-	        ],
+                'name' => 'Passe Cable',
+                'description'   =>  null,
+                'quantity'  =>  10,
+                'place' => 'Garage7',
+                'status' =>  true,
+                'caution' => 300,
+                'type' => 1,
+                'association' => 1,
+            ],
         ];
 
-        foreach ($associations as $association => $values){
-            Association::create($values);
+        foreach ($items as $item => $values){
+            Item::create($values);
         }
 
     }

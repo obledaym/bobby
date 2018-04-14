@@ -15,6 +15,14 @@ class CreateBookingLinesTable extends Migration
     {
         Schema::create('booking_lines', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('booking');
+            $table->integer('item');
+            $table->integer('quantity');
+            $table->timestamp('date');
+            $table->string('status');
+
+            $table->foreign('item')->references('id')->on('items');
+            $table->foreign('booking')->references('id')->on('bookings');
             $table->timestamps();
         });
     }
