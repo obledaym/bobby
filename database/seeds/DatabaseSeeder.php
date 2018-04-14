@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         	ItemsTableSeeder::class,
         	ItemTypesTableSeeder::class,
         	UsersTableSeeder::class,
+        	BookingsTableSeeder::class,
+        	BookingLinesTableSeeder::class,
         ]);
     }
 }
