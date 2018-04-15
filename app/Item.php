@@ -11,12 +11,12 @@ class Item extends Model
 	];
 	protected $table = 'items';
 
-	public function association()
+	public function associations()
 	{
 		return $this->belongsTo('App\Association');
 	}
 
-	public function itemtype()
+	public function itemtypes()
 	{
 		return $this->belongsTo('App\ItemType');
 	}

@@ -12,12 +12,12 @@ class Association extends Model
 
 	protected $table = 'associations';
 
-	public function user()
+	public function users()
 	{
 		return $this->belongsToMany('App\User', 'asso_users');
 	}
 
-	public function item()
+	public function items()
 	{
 		return $this->hasMany('App\Item');
 	}
