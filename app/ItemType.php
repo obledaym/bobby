@@ -10,4 +10,9 @@ class ItemType extends Model
 		'name',
 	];
 	protected $table = 'item_types';
+
+	public function item()
+	{
+		return $this->hasMany('App\Item');
+	}
 }

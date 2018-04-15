@@ -16,4 +16,9 @@ class Association extends Model
 	{
 		return $this->belongsToMany('App\User', 'asso_users');
 	}
+
+	public function item()
+	{
+		return $this->hasMany('App\Item');
+	}
 }
