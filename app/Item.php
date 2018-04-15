@@ -20,4 +20,9 @@ class Item extends Model
 	{
 		return $this->belongsTo('App\ItemType');
 	}
+
+	public function bookinglines()
+	{
+		return $this->hasMany('App\BookingLine', 'item');
+	}
 }

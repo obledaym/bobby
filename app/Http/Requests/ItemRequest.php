@@ -33,4 +33,6 @@ class ItemRequest extends FormRequest
             'association'   =>  'integer'.($this->isMethod('put')?'':'|required'),
         ];
     }
+
+ 
 }

@@ -11,4 +11,14 @@ class BookingLine extends Model
 	];
 
 	protected $table = 'booking_lines';
+
+	public function bookings()
+	{
+		$this->belongsTo('App\BookingLine');
+	}
+
+	public function items()
+	{
+		$this->belongsTo('App\Item');
+	}
 }

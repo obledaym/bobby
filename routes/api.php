@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\ItemType;
 use App\Item;
+use App\Association;
 use Illuminate\Support\Str;
 use App\Booking;
 
@@ -46,12 +47,13 @@ Route::prefix('v1')->group(function () {
     	$place = ItemType::find($type_id)->items()->pluck('place');
     	$status = ItemType::find($type_id)->items()->pluck('status');
     	$caution = ItemType::find($type_id)->items()->pluck('caution');
+    	$association = ItemType::find($type_id)->items()->association()->pluck('name');
     	
     	$items = [];
 
     	for ($i=0; $i< count($name); $i++)
     	{
-		array_push($items, ['name' => $name[$i], 'description' => $description[$i], 'quantity' => $quantity[$i], 'place' => $place[$i], 'status' => $status[$i], 'caution' => $caution[$i]]);
+			array_push($items, ['name' => $name[$i], 'description' => $description[$i], 'quantity' => $quantity[$i], 'place' => $place[$i], 'status' => $status[$i], 'caution' => $caution[$i], 'association' => $association[i]]);
     	};
     	
 
@@ -59,7 +61,9 @@ Route::prefix('v1')->group(function () {
 
     });
 
-    /*Route::get('bookinglines/booking/{booking}', function($booking_id){
-    	return $bookings = Booking::find($booking_id)->bookinglines();
-    });*/
+    Route::get('associations/booking/{owner}/{type}', function($association_id, $type_id) {
+    	return Association::find($association_id)->bookings()->where('status', $type_id)->with('bookinglines')->get();   	
+    	
+    	return Association::find($association_id)->bookings()->where('bookings.status', $type_id)->join('booking_lines', 'bookings.id', '=', 'booking_lines.booking')->join('items', 'booking_lines.item', '=', 'items.id')->get(); 
+    });
 });

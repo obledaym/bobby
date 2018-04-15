@@ -19,6 +19,11 @@ class Association extends Model
 
 	public function items()
 	{
-		return $this->hasMany('App\Item');
+		return $this->hasMany('App\Item', 'association');
+	}
+
+	public function bookings()
+	{
+		return $this->hasMany('App\Booking', 'owner');
 	}
 }
