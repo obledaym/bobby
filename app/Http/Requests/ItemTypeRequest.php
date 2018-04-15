@@ -25,6 +25,7 @@ class ItemTypeRequest extends FormRequest
     {
         return [
             'name' =>  'string|between:3,191'.($this->isMethod('put')?'':'|required'),
+            'picture'   => 'string',
         ];
     }
 }
