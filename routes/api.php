@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\User;
+use App\ItemType;
+use App\Item;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +31,13 @@ Route::prefix('v1')->group(function () {
 			'itemtypes'		=> 'ItemTypeController',
 			'assousers'		=>	'AssoUserController',
 	]);
+	
+	Route::get('assousers/users/{user}', function ($user_id) {
+    	return $assos = User::find($user_id)->associations()->pluck('name');
+    });
+
+    Route::get('items/itemtypes/{id}', function($id){
+    	return $items = ItemType::find($id)->items()->pluck('name');
+
+    });
 });

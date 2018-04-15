@@ -11,8 +11,8 @@ class ItemType extends Model
 	];
 	protected $table = 'item_types';
 
-	public function item()
+	public function items()
 	{
-		return $this->hasMany('App\Item');
+		return $this->hasMany('App\Item', 'type');
 	}
 }

@@ -32,6 +32,6 @@ class User extends Authenticatable
 
     public function associations()
     {
-        return $this->belongsToMany('App\Association', 'asso_users');
+        return $this->belongsToMany('App\Association', 'asso_users', 'user', 'association');
     }
 }

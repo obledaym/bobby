@@ -31,7 +31,7 @@ class ItemTypesTableSeeder extends Seeder
             ],
             [
                 'name' => 'Cuisine',
-                'picture'   =>  'images/ciusine.png',
+                'picture'   =>  'images/cuisine.png',
             ],
             [
                 'name' => 'Décoration',
