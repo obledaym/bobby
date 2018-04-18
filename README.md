@@ -21,7 +21,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-Migrer les tables 
+Migrer les tables
 ```
 php artisan migrate
 ```
@@ -31,3 +31,12 @@ Remplir les bases de données test
 php artisan db:seed
 ```
 
+Générer la clé pour php artisan
+```
+php artisan key:generate
+```
+
+Lancer le serveur
+```
+php artisan serve
+```

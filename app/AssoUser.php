@@ -11,4 +11,3 @@ class AssoUser extends Model
 	];
 	protected $table = 'asso_users';
 }
-
